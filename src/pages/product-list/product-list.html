@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Verfügbare Produkte</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let product of products" (click)="itemTapped($event, product)">
+      <ion-icon name="wifi" item-left></ion-icon>
+      {{product.name}}
+      <!--<div class="item-note" item-right>-->
+        <!--{{item.note}}-->
+      <!--</div>-->
+    </button>
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

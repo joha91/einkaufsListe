@@ -6,3 +6,10 @@ export interface Product {
   price: number;
   name: string;
 }
+
+
+export interface ShoppingList {
+  name: string;
+  creator: string;
+  products?: Array<Product>;  // ? => optional parameter
+}

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Deine Einkaufslisten</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>Verfügbare Listen</ion-label>
+    <ion-select [(ngModel)]="selectedShoppingList" multiple="false">
+      <ion-option>Bacon</ion-option>
+      <ion-option>Black Olives</ion-option>
+      <ion-option>Extra Cheese</ion-option>
+      <ion-option>Mushrooms</ion-option>
+      <ion-option>Pepperoni</ion-option>
+      <ion-option>Sausage</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <p>{{selectedShoppingList}}</p>
+
+
+  <!--<ion-item>-->
+    <!--<ion-label>Verfügbare Listen</ion-label>-->
+    <!--<ion-select [(ngModel)]="selectedShoppingList" multiple="false">-->
+      <!--<ion-option *ngFor="let shoppingList in availableShoppingLists">-->
+        <!--{{shoppingList.name}}-->
+      <!--</ion-option>-->
+    <!--</ion-select>-->
+  <!--</ion-item>-->
+
+  <!--<p>Ausgewählte Liste</p>-->
+  <!--<p>{{selectedShoppingList.name}} von {{selectedShoppingList.creator}}</p>-->
+
+</ion-content>
