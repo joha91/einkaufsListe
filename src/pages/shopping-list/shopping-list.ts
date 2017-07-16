@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { NavController} from 'ionic-angular';
 import {ShoppingListService} from './../../services/shopping-list.service'
+import {NewShoppingListPage} from './../new-shopping-list/new-shopping-list'
+import {ShoppingList} from './../../interfaces/interfaces'
 
 @Component({
   selector: 'page-hello-ionic',
@@ -7,9 +10,14 @@ import {ShoppingListService} from './../../services/shopping-list.service'
   providers: [ShoppingListService]
 })
 export class ShoppingListPage {
-  availableShoppingLists: any;
-  selectedShoppingList: any;
-  constructor( shoppingListService: ShoppingListService ) {
-    this.availableShoppingLists= shoppingListService.getAvailableShoppingLists()
+  availableShoppingLists: Array<ShoppingList>;
+  selectedShoppingList: ShoppingList;
+  constructor(public navCtrl: NavController, shoppingListService: ShoppingListService ) {
+    this.availableShoppingLists = shoppingListService.getAvailableShoppingLists()
   }
+
+  createNewShoppingList() {
+    this.navCtrl.push(NewShoppingListPage);
+  }
+
 }

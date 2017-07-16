@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Einkaufslisten erstellen</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <form (ngSubmit)="submit()">
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="shoppingList.name" name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Autor</ion-label>
+      <ion-input [(ngModel)]="shoppingList.creator" name="creator"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Einkaufsliste erstellen</button>
+  </form>
+
+</ion-content>

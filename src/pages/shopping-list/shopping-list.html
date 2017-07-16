@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Deine Einkaufslisten</ion-title>
+    <ion-title>Deine Einkaufslisten <span *ngIf="selectedShoppingList">- {{selectedShoppingList.name}}</span></ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -13,28 +13,26 @@
   <ion-item>
     <ion-label>Verfügbare Listen</ion-label>
     <ion-select [(ngModel)]="selectedShoppingList" multiple="false">
-      <ion-option>Bacon</ion-option>
-      <ion-option>Black Olives</ion-option>
-      <ion-option>Extra Cheese</ion-option>
-      <ion-option>Mushrooms</ion-option>
-      <ion-option>Pepperoni</ion-option>
-      <ion-option>Sausage</ion-option>
+      <ion-option *ngFor="let shoppingList of availableShoppingLists" [value]="shoppingList">
+        {{shoppingList.name}}
+      </ion-option>
     </ion-select>
   </ion-item>
 
-  <p>{{selectedShoppingList}}</p>
+  <span *ngIf="selectedShoppingList">
+    <p>Ausgewählte Liste</p>
+    <p>{{selectedShoppingList.name}} von {{selectedShoppingList.creator}}</p>
 
 
-  <!--<ion-item>-->
-    <!--<ion-label>Verfügbare Listen</ion-label>-->
-    <!--<ion-select [(ngModel)]="selectedShoppingList" multiple="false">-->
-      <!--<ion-option *ngFor="let shoppingList in availableShoppingLists">-->
-        <!--{{shoppingList.name}}-->
-      <!--</ion-option>-->
-    <!--</ion-select>-->
-  <!--</ion-item>-->
+    <p>Produkte der Liste</p>
+    <span *ngFor="let product of selectedShoppingList.products">
+      {{product.name}}
+    </span>
 
-  <!--<p>Ausgewählte Liste</p>-->
-  <!--<p>{{selectedShoppingList.name}} von {{selectedShoppingList.creator}}</p>-->
+  </span>
 
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="createNewShoppingList()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>

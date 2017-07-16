@@ -12,7 +12,17 @@ export class ShoppingListService {
     this.shoppingLists = [
       {
         name: "Einkaufslist Jonas",
-        creator: "Jonas"
+        creator: "Jonas",
+        products: [
+          {
+            name: "Milch",
+            price: 1
+          },
+          {
+            name: "Käse",
+            price: 1.5
+          }
+        ]
       },
       {
         name: "Einkaufsliste Anna",
